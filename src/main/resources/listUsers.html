@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello jQuery</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+		$(document).ready(function() {
+		    $.getJSON("http://localhost:8080/v1/users" , function(data) {
+		       var items = [];
+			$.each( data, function(key ,val) {
+				items.push( "<li>"+ val.id+" - "+ val.name+"("+ val.email+")</li>" );
+			});
+			$( "<ul/>",{    
+				"class": "my-new-list",
+				html: items.join( "" )
+			}).appendTo( "body" );
+		    });
+		});	
+	</script>
+    </head>
+
+    <body>
+        <div>
+            <p class="data"/>
+        </div>
+    </body>
+</html>

